@@ -62,6 +62,9 @@ atac.bkg.quant = function(peaks,frags.fname,cells=NULL){
                          cells = cells)
 }
 
+if(dir.exists(pars$out))
+  stop(paste0("outpput folder '",pars$out,"', already exists!"))
+
 peaks = read.table(pars$peaks)
 colnames(peaks)[1:3]= c('chr','start','end')
 r = atac.bkg.quant(peaks,pars$fragments)
